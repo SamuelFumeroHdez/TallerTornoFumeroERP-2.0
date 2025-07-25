@@ -1,0 +1,10 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: TallerTornoFumeroERP 2.0
+
+data:
+  mongodb:
+    uri: ${TTFERP_MONGO_URI}

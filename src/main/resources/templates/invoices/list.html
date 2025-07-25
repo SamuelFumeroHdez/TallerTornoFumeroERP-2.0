@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Facturas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+
+<!-- Aquí se incluye el navbar -->
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<div class="container mt-4">
+    <h2 class="mb-4 text-center">Facturas</h2>
+
+    <div class="d-flex justify-content-end mb-3">
+        <a href="/invoices/create" class="btn btn-success">➕ Nueva Factura</a>
+    </div>
+
+    <table class="table table-striped table-hover shadow">
+        <thead class="table-primary">
+        <tr>
+            <th>Num. Factura</th>
+            <th>Empresa</th>
+            <th>NIF</th>
+            <th>Fecha</th>
+            <th>Importe</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="invoice : ${invoices}">
+            <td th:text="${invoice.invoiceNumber}">Nombre</td>
+            <td th:text="${invoice.customer.legalName}">Nombre Legal</td>
+            <td th:text="${invoice.customer.nif}">NIF</td>
+            <td th:text="${invoice.date}">Fecha</td>
+            <td th:text="${invoice.total}">Inporte</td>
+            <td>
+                <a th:href="@{/invoice/details/{invoiceNumber}(invoiceNumber=${invoice.invoiceNumber})}" class="btn btn-warning btn-sm">✏️ Editar</a>
+                <a th:href="@{/invoice/delete/{invoiceNumber}(invoiceNumber=${invoice.invoiceNumber})}" class="btn btn-danger btn-sm"
+                   onclick="return confirm('¿Estás seguro de que deseas eliminar esta factura?')">🗑 Eliminar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
