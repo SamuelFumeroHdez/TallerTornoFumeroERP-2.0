@@ -5,6 +5,6 @@ spring:
   application:
     name: TallerTornoFumeroERP 2.0
 
-data:
-  mongodb:
-    uri: ${TTFERP_MONGO_URI}
+  data:
+    mongodb:
+      uri: ${TTFERP_MONGO_URI}
