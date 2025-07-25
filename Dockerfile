@@ -7,6 +7,8 @@ WORKDIR /app
 # Copia todo el contenido del proyecto al contenedor
 COPY . .
 
+RUN chmod +x ./mvnw
+
 # Construye el JAR del proyecto
 RUN ./mvnw clean package -DskipTests
 
