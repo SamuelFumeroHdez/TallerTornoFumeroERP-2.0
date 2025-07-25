@@ -18,12 +18,12 @@ public class InvoiceLineController {
     @Autowired
     private InvoiceLineService invoiceLineService;
 
-    @GetMapping
-    public String createInvoiceLine(@ModelAttribute("invoice") Invoice invoice, Model model){
-        List<InvoiceLine> invoiceLines = invoiceLineService.getInvoiceLinesByInvoice(invoice.getInvoiceNumber());
-        model.addAttribute("invoiceLines", invoiceLines);
-        model.addAttribute("invoiceLine", new InvoiceLine()); // objeto vacío para el modal
-        model.addAttribute("showCreateInvoiceLineModal", true); // aquí activamos el modal
-        return "inovices/form"; // misma plantilla con modal abierto
-    }
+//    @GetMapping
+//    public String createInvoiceLine(@ModelAttribute("invoice") Invoice invoice, Model model){
+//        List<InvoiceLine> invoiceLines = invoiceLineService.getInvoiceLinesByInvoice(invoice.getInvoiceNumber());
+//        model.addAttribute("invoiceLines", invoiceLines);
+//        model.addAttribute("invoiceLine", new InvoiceLine()); // objeto vacío para el modal
+//        model.addAttribute("showCreateInvoiceLineModal", true); // aquí activamos el modal
+//        return "inovices/form"; // misma plantilla con modal abierto
+//    }
 }
